@@ -1,0 +1,27 @@
+{% import '_macros/helpers' as helpers %}
+
+{#---------- Parameters ----------#}
+
+{#---------- Data Handling ----------#}
+
+{#---------- Classes ----------#}
+{% set baseClass = "mol-PCard" %}
+{% set variants = variants ?? [] %}
+{% set title = title %}
+{% set description = description %}
+{% set image = image ?? false %}
+{% set button = button %}
+{% set classes = helpers.generateClasses(baseClass, variants, [], []) %}
+
+{#---------- Output ----------#}
+	<div class="{{ classes }}"> <div class="mol-Pcard__container">
+		<div class="mol-pCard__image-wrapper">
+			<img src="{{ image.url }}" alt="{{ image.title }}">
+		</div>
+		<div class="mol-pCard__body-wrapper">
+			<h2>{{ title }}</h2>
+			<p>{{ description }}</p>
+			<button>{{ button }}</button>
+		</div>
+	</div>
+</div>

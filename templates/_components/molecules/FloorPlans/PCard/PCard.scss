@@ -1,0 +1,67 @@
+$base-class: ".mol-PCard";
+
+@mixin usePCardVariants($variant, $variant2: null) {
+  @include useVariants($base-class, $variant, $variant2) {
+    @content;
+  }
+}
+
+#{$base-class} {
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  display: flex;
+
+  .mol-Pcard__container {
+	  width: 90%;
+	  margin: auto;
+	  border:1px solid grey;
+	  border-radius: 8px;
+	  margin-bottom: 50px;
+	  
+	  .mol-pCard__image-wrapper{
+		  height: 300px;
+		  width: 100%;
+		  
+		  img{
+			  height:100%;
+			  width: 100%;
+			  object-fit: cover;
+			  object-position: top;
+			}
+		}
+		
+		.mol-pCard__body-wrapper{
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+			padding-inline: 30px;
+			padding:30px;
+			
+			button{
+				text-align: start;
+				padding-block: 10px;
+				text-transform: capitalize;
+				color: blue;
+
+				&:hover{
+					cursor: pointer;
+					color: orangered;
+				}
+		}
+	}
+	
+  }
+
+  @media screen  and (min-width: 768px){
+	.mol-Pcard__container{
+		width: 60%;
+	}
+  }	
+
+   @media screen  and (min-width: 1024px){
+	.mol-Pcard__container{
+		width: 30%;
+	}
+  }	
+}
